@@ -8,5 +8,6 @@ fun main() {
     val remainingMinutes = minutes % 60
     val remainingSeconds = seconds % 60
 
-    println("0$hours:$remainingMinutes:0$remainingSeconds")
+    val formatTime = String.format("%02d:%02d:%02d;", hours, remainingMinutes, remainingSeconds)
+    println(formatTime)
 }
