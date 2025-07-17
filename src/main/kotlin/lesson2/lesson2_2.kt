@@ -1,13 +1,19 @@
 package org.example.lesson2
 
 fun main() {
-    val permanentStaffPayment = 50 * 30000
-    println(permanentStaffPayment)
 
-    val internPay = 30 * 20000
-    val totalSalaryExpenses = permanentStaffPayment + internPay
+    val permanentStaff = 50
+    val permanentStaffPayment = 30000
+    val interns = 30
+    val internPayment = 20000
+
+    val paymentOfAllPermanentStaff = permanentStaff * permanentStaffPayment
+    println(paymentOfAllPermanentStaff)
+
+    val paymentOfAllInterns = interns * internPayment
+    val totalSalaryExpenses = paymentOfAllPermanentStaff + paymentOfAllInterns
     println(totalSalaryExpenses)
 
-    val currentAverageSalary = totalSalaryExpenses / (30 + 50)
+    val currentAverageSalary = totalSalaryExpenses / (permanentStaff + interns)
     println(currentAverageSalary)
 }
