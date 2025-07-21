@@ -5,7 +5,7 @@ fun main() {
     val isEven: Boolean = (trainingDay % 2 == 0)
 
     println(
-        "Упражнения для рук: ${!isEven}\nУпражнения для ног: ${!isEven}\nУпражнения для спины: $isEven" +
-                "\nУпражнения для пресса: $isEven"
+        "Упражнения для рук: ${!isEven}\nУпражнения для ног: $isEven\nУпражнения для спины: $isEven" +
+                "\nУпражнения для пресса: ${!isEven}"
     )
 }
