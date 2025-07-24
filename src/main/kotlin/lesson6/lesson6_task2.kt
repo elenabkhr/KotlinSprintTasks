@@ -1,13 +1,12 @@
 package org.example.lesson6
 
+const val MILLIS_IN_SECOND = 1000
+
 fun main() {
     println("Введите количество секунд: ")
-    var seconds = readln().toInt()
-    val numberOfSeconds = seconds
+    val seconds = readln()
 
-    while (seconds > 0) {
-        seconds--
-        Thread.sleep(1000)
-    }
-    println("Прошло $numberOfSeconds секунд.")
+    Thread.sleep(seconds.toLong() * MILLIS_IN_SECOND)
+
+    println("Прошло $seconds секунд.")
 }
