@@ -1,9 +1,11 @@
 package org.example.lesson7
 
 fun main() {
+    val rangeRandom = (1000..9999)
+
     do {
-        val randomCode = (1000..9999).random()
-        println("Ваш код авторизации: $randomCode.")
+        val randomCode = rangeRandom.random()
+        println("Ваш код авторизации: ${randomCode}.")
 
         var isAuthorized = false
         println("Для авторизации необходимо ввести код из СМС:")
@@ -14,10 +16,9 @@ fun main() {
                 println("Добро пожаловать!")
                 isAuthorized = true
             }
-
-            userCode != randomCode -> {
+            else -> {
                 println("Код введен неверно, введите новый код")
             }
         }
-    } while (isAuthorized == false)
+    } while (!isAuthorized)
 }
