@@ -2,15 +2,15 @@ package org.example.lesson7
 
 fun main() {
     var randomPassword = ""
+    val randomRangeChar = ('1'..'9')
+    val randomRangeString = ('a'..'z')
 
     for (i in 1..6) {
 
         if (i % 2 == 0) {
-            val randomRangeChar = ('1'..'9').random().toString()
-            randomPassword += randomRangeChar
+            randomPassword += randomRangeChar.random()
         } else {
-            val randomRangeString = ('a'..'z').random()
-            randomPassword += randomRangeString
+            randomPassword += randomRangeString.random()
         }
     }
     println(randomPassword)
