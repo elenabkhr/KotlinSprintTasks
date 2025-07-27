@@ -1,11 +1,8 @@
 package org.example.lesson8
 
 fun main() {
-    val adViews = arrayOf(10, 30, 40, 20, 35, 15, 30)
-    var weeklyAdViews = 0
+    val adViews = intArrayOf(10, 30, 40, 20, 35, 15, 30)
+    val weeklyAdViews = adViews.sum()
 
-    for (i in adViews) {
-        weeklyAdViews += i
-    }
     println(weeklyAdViews)
 }
