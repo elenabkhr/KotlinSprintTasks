@@ -9,7 +9,7 @@ fun main() {
     var isIngredientFound = false
 
     for (i in pizzaIngredients) {
-        if (pizzaIngredients.indexOf(ingredientSearch) == pizzaIngredients.indexOf(i))
+        if (i == ingredientSearch)
             isIngredientFound = true
     }
     if (isIngredientFound == true) println("Ингредиент \"$ingredientSearch\" в рецепте есть.")
