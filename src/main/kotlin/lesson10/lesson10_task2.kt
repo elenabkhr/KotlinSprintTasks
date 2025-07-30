@@ -1,7 +1,7 @@
 package org.example.lesson10
 
 fun main() {
-    printResult(enterUserName(), enterPassword())
+    validateAndPrintResult(enterUserName(), enterPassword())
 }
 
 fun enterUserName(): String {
@@ -14,10 +14,17 @@ fun enterPassword(): String {
     return readln()
 }
 
-fun printResult(userName: String, userPassword: String): String {
-    if (userName.length > 4 || userPassword.length > 4) {
-        return "Добро пожаловать!"
+fun validateAndPrintResult(userName: String, userPassword: String) {
+    if (userName.length >= 4 && userPassword.length >= 4) {
+        println("Добро пожаловать!")
     } else {
-        return "Логин или пароль недостаточно длинные"
+        println("Логин или пароль недостаточно длинные")
     }
 }
+
+//Для регистрации в приложении пользователь придумывает логин и пароль.
+//И логин, и пароль должны содержать в себе хотя бы 4 символа. Если всё верно, программа выводит приветственное сообщение.
+
+//- считывай логин и пароль с консоли поочередно;
+//- вынеси в отдельную функцию валидацию длины введенных данных;
+//- если логин или пароль меньше 4 символов – вывести сообщение: "Логин или пароль недостаточно длинные".
