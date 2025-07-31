@@ -12,8 +12,6 @@ fun main() {
         inputIngredientList.add(i, newIngredient)
     }
 
-    val resultIngredientList =
-        inputIngredientList.distinct().sorted().joinToString().replaceFirstChar { it.titlecase() }
-
-    println(resultIngredientList)
+    val resultIngredientSet = inputIngredientList.toSortedSet()
+    println(resultIngredientSet.joinToString(separator = ", ").replaceFirstChar { it.titlecase() })
 }
