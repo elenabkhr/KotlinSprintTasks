@@ -4,14 +4,20 @@ fun main() {
     val room1 = Room(
         cover = "код обложки",
         title = "название",
-        participants = mutableListOf("участник1", "участник2", "участник3")
+        participant = mutableListOf(),
+    )
+
+    val participant1 = Participant(
+        profilePicture = "фото",
+        nickname = "имя",
+        status = Status(speaking = true, muted = false, userMuted = false),
     )
 }
 
-class Participants(
+class Participant(
     val profilePicture: String,
     val nickname: String,
-    val status: String,
+    var status: Status,
 )
 
 class Status(
@@ -23,12 +29,19 @@ class Status(
 class Room(
     val cover: String,
     val title: String,
-    val participants: MutableList<String>,
+    val participant: MutableList<Participant>,
 ) {
 
-    fun addParticipant(name: Participants) {
+    fun addParticipant(name: Participant) {
+        participant.add(name)
     }
 
-    fun updateStatus(nickname: String, newStatus: String) {
+    fun updateStatus(nickname: String, newStatus: Status) {
+        for (i in participant) {
+            if (i.nickname == nickname) {
+                i.status = newStatus
+                break
+            }
+        }
     }
 }
