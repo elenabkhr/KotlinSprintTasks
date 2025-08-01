@@ -1,4 +1,4 @@
-package org.example.lesson1_10.lesson10
+package org.example.lesson10
 
 fun main() {
     var winCount = 0
