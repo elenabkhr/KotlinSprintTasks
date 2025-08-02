@@ -15,7 +15,7 @@ class Recipe (
 )
 
 class Ingredients(
-    val nameIngredients: List<String>,
-    val numberIngredients: List<Int>,
+    val nameIngredients: String,
+    val numberIngredients: Int,
     val numberServings: Int,
 )
