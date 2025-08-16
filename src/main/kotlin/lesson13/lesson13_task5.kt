@@ -1,7 +1,5 @@
 package org.example.lesson13
 
-import kotlin.NumberFormatException
-
 fun main() {
     val phone1 = PhoneDirectory5(
         "name",
@@ -18,8 +16,8 @@ class PhoneDirectory5(
     init {
         try {
             this.phoneNumber.toLong()
-        } catch (e: NumberFormatException) {
-            println("Ошибка: NumberFormatException")
+        } catch (e: Exception) {
+            println("Ошибка: ${e.javaClass.simpleName}")
         }
     }
 }
