@@ -1,28 +1,29 @@
 package org.example.lesson14
 
 fun main() {
-    val liner = Liner()
-    val cargoShip = CargoShip()
-    val icebreaker = Icebreaker()
+    val liner = Liner("Лайнер1")
+    val cargoShip = CargoShip("Грузовой1")
+    val icebreaker = Icebreaker("Ледокол1")
 }
 
-open class Liner {
-    open val speed: Int = 10
-    open val loadCapacity: Int = 10
-    open val capacity: Int = 10
-    open val passengers: Int = 10
-    open val isBreakingIce: Boolean = false
-}
+open class Liner(
+    val name: String,
+    open val speed: Int = 10,
+    open val cargoCapacity: Int = 10,
+    open val passengerCapacity: Int = 15,
+)
 
-class CargoShip : Liner() {
-    override val speed: Int = 5
-    override val loadCapacity: Int = 15
-    override val passengers: Int = 5
-}
+class CargoShip(
+    name: String,
+    override val speed: Int = 5,
+    override val cargoCapacity: Int = 15,
+    override val passengerCapacity: Int = 10,
+) : Liner(name, speed, cargoCapacity, passengerCapacity)
 
-class Icebreaker : Liner() {
-    override val speed: Int = 5
-    override val capacity: Int = 5
-    override val passengers: Int = 5
-    override val isBreakingIce = true
-}
+class Icebreaker(
+    name: String,
+    override val speed: Int = 5,
+    override val cargoCapacity: Int = 10,
+    override val passengerCapacity: Int = 5,
+    val isBreakingIce: Boolean = true,
+) : Liner(name, speed, cargoCapacity, passengerCapacity)
