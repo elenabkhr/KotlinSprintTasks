@@ -1,64 +1,63 @@
 package org.example.lesson14
 
 fun main() {
-    val liner = Liner2()
-    val cargoShip = CargoShip2()
-    val icebreaker = Icebreaker2()
+    val liner = Liner2("Лайнер2")
+    val cargoShip = CargoShip2("Грузовой2")
+    val icebreaker = Icebreaker2("Ледокол2")
 
     println(liner)
     println(cargoShip)
     println(icebreaker)
 
-    liner.loadingMethod()
-    cargoShip.loadingMethod()
-    icebreaker.loadingMethod()
+    liner.loadCargo()
+    cargoShip.loadCargo()
+    icebreaker.loadCargo()
 }
 
-open class Liner2 {
-    open val speed: Int = 10
-    open val loadCapacity: Int = 10
-    open val capacity: Int = 10
-    open val passengers: Int = 10
-    open val isBreakingIce: Boolean = false
-
-    open fun loadingMethod() {
-        println("${javaClass.simpleName}: Выдвижение горизонтального трапа со шкафута")
+open class Liner2(
+    val name: String,
+    open val speed: Int = 10,
+    open val cargoCapacity: Int = 10,
+    open val passengerCapacity: Int = 15,
+) {
+    open fun loadCargo() {
+        println("$name: Выдвижение горизонтального трапа со шкафута")
     }
 
     override fun toString(): String {
-        return "${javaClass.simpleName}: Скорость: $speed, грудоподъемность: $loadCapacity, вместимость: $capacity, " +
-                "пассижиры: $passengers, возможность колоть лед: $isBreakingIce"
+        return "$name: Скорость: $speed, грудоподъемность: $cargoCapacity, " +
+                "вместимость: $passengerCapacity"
 
     }
 }
 
-class CargoShip2 : Liner2() {
-    override val speed: Int = 5
-    override val loadCapacity: Int = 15
-    override val passengers: Int = 5
+class CargoShip2(
+    name: String,
+    override val speed: Int = 5,
+    override val cargoCapacity: Int = 15,
+    override val passengerCapacity: Int = 10,
+) : Liner2(name, speed, cargoCapacity, passengerCapacity) {
 
-    override fun loadingMethod() {
-        println("${javaClass.simpleName}: Активация погрузочного крана")
+    override fun loadCargo() {
+        println("$name: Активация погрузочного крана")
     }
 }
 
-class Icebreaker2 : Liner2() {
-    override val speed: Int = 5
-    override val capacity: Int = 5
-    override val passengers: Int = 5
-    override val isBreakingIce = true
+class Icebreaker2(
+    name: String,
+    override val speed: Int = 5,
+    override val cargoCapacity: Int = 10,
+    override val passengerCapacity: Int = 5,
+    val isBreakingIce: Boolean = true,
+) : Liner2(name, speed, cargoCapacity, passengerCapacity) {
 
-    override fun loadingMethod() {
-        println("${javaClass.simpleName}: Открытие ворот со стороны кормы")
+    override fun loadCargo() {
+        println("$name: Открытие ворот со стороны кормы")
+    }
+
+    override fun toString(): String {
+        return "$name: Скорость: $speed, грудоподъемность: $cargoCapacity, вместимость: $passengerCapacity, " +
+                "возможность колоть лед: $isBreakingIce"
+
     }
 }
-
-//Скопируй классы из предыдущей задачи и измени их названия для избегания конфликтов.
-
-//Каждый тип корабля обладает уникальным способом погрузки:
-//- лайнер выдвигает горизонтальный трап со шкафута;
-//- грузовой корабль активирует погрузочный кран;
-//- ледокол открывает ворота со стороны кормы.
-
-//Реализуй методы погрузки, специфичные для каждого вида корабля.
-//Добавь метод вывода информации о свойствах корабля и выведи информацию в консоль.
