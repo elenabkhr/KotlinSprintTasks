@@ -2,12 +2,15 @@ package org.example.lesson14
 
 import kotlin.math.pow
 
-fun main() {
-    val rectangleBlack = Rectangle("black", 10.0, 10.0)
-    val rectangleWhite = Rectangle("white", 20.0, 20.0)
+const val COLOR_BLACK = "black"
+const val COLOR_WHITE = "white"
 
-    val circleBlack = Circle("black", 10.0)
-    val circleWhite = Circle("white", 20.0)
+fun main() {
+    val rectangleBlack = Rectangle(COLOR_BLACK, 10.0, 10.0)
+    val rectangleWhite = Rectangle(COLOR_WHITE, 20.0, 20.0)
+
+    val circleBlack = Circle(COLOR_BLACK, 10.0)
+    val circleWhite = Circle(COLOR_WHITE, 20.0)
 
     val listFigure: List<Figure> = listOf(rectangleBlack, rectangleWhite, circleBlack, circleWhite)
 
@@ -15,10 +18,9 @@ fun main() {
     var sumWhiteArea = 0.0
 
     for (i in listFigure) {
-        if (i == rectangleBlack) {
+        if (i.color == COLOR_BLACK) {
             sumBlackPerimeter += i.calculatePerimeter()
-        }
-        else {
+        } else {
             sumWhiteArea += i.calculateArea()
         }
     }
@@ -31,17 +33,6 @@ abstract class Figure(val color: String) {
     abstract fun calculateArea(): Double
 
     abstract fun calculatePerimeter(): Double
-
-    override fun equals(other: Any?): Boolean {
-        if (other is Figure) {
-            return color == other.color
-        }
-        return false
-    }
-
-    override fun hashCode(): Int {
-        return color.hashCode()
-    }
 }
 
 class Rectangle(
