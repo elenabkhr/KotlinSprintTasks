@@ -11,14 +11,37 @@ fun main() {
 
     val listFigure: List<Figure> = listOf(rectangleBlack, rectangleWhite, circleBlack, circleWhite)
 
-    println(String.format("%.2f", rectangleBlack.calculatePerimeter() + circleBlack.calculatePerimeter()))
-    println(String.format("%.2f", rectangleWhite.calculateArea() + circleWhite.calculateArea()))
+    var sumBlackPerimeter = 0.0
+    var sumWhiteArea = 0.0
+
+    for (i in listFigure) {
+        if (i == rectangleBlack) {
+            sumBlackPerimeter += i.calculatePerimeter()
+        }
+        else {
+            sumWhiteArea += i.calculateArea()
+        }
+    }
+
+    println(String.format("%.2f", sumBlackPerimeter))
+    println(String.format("%.2f", sumWhiteArea))
 }
 
 abstract class Figure(val color: String) {
     abstract fun calculateArea(): Double
 
     abstract fun calculatePerimeter(): Double
+
+    override fun equals(other: Any?): Boolean {
+        if (other is Figure) {
+            return color == other.color
+        }
+        return false
+    }
+
+    override fun hashCode(): Int {
+        return color.hashCode()
+    }
 }
 
 class Rectangle(
