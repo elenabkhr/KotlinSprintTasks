@@ -14,19 +14,11 @@ fun main() {
 
     val listFigure: List<Figure> = listOf(rectangleBlack, rectangleWhite, circleBlack, circleWhite)
 
-    var sumBlackPerimeter = 0.0
-    var sumWhiteArea = 0.0
+    println(String.format("%.2f", listFigure.filter { it.color == COLOR_BLACK }
+        .sumOf { it.calculatePerimeter() }))
 
-    for (i in listFigure) {
-        if (i.color == COLOR_BLACK) {
-            sumBlackPerimeter += i.calculatePerimeter()
-        } else {
-            sumWhiteArea += i.calculateArea()
-        }
-    }
-
-    println(String.format("%.2f", sumBlackPerimeter))
-    println(String.format("%.2f", sumWhiteArea))
+    println(String.format("%.2f", listFigure.filter { it.color == COLOR_WHITE }
+        .sumOf { it.calculateArea() }))
 }
 
 abstract class Figure(val color: String) {
