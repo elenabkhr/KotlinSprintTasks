@@ -15,15 +15,9 @@ open class Liner(
 
 class CargoShip(
     name: String,
-    override val speed: Int = 5,
-    override val cargoCapacity: Int = 15,
-    override val passengerCapacity: Int = 10,
-) : Liner(name, speed, cargoCapacity, passengerCapacity)
+) : Liner(name = name, speed = 5, cargoCapacity = 15, passengerCapacity = 10)
 
 class Icebreaker(
     name: String,
-    override val speed: Int = 5,
-    override val cargoCapacity: Int = 10,
-    override val passengerCapacity: Int = 5,
     val isBreakingIce: Boolean = true,
-) : Liner(name, speed, cargoCapacity, passengerCapacity)
+) : Liner(name = name , speed = 5, cargoCapacity = 10, passengerCapacity = 5)
