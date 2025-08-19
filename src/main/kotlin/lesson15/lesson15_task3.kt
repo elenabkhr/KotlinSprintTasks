@@ -1,15 +1,14 @@
 package org.example.lesson15
 
 fun main() {
-    val user = StandardUser("name1", 1)
+    val user = RegularUser("name1", 1)
     user.readForum()
-    user.writeMessage()
+    user.writeMessage(user)
+    println()
 
     val administrator = Administrator("name2", 2)
-    administrator.readForum()
-    administrator.writeMessage()
-    administrator.deleteUser()
-    administrator.deleteMessage()
+    administrator.deleteUser(user)
+    administrator.deleteMessage(user)
 }
 
 abstract class User(
@@ -17,22 +16,22 @@ abstract class User(
     val id: Int,
 ) {
     open fun readForum() {
-        println("Читать форум")
+        println("$name читает форум")
     }
 
-    open fun writeMessage() {
-        println("Написать сообщение")
+    open fun writeMessage(messageId: RegularUser) {
+        println("$name написал сообщение №${messageId.id}")
     }
 }
 
-class StandardUser(name: String, id: Int) : User(name, id)
+class RegularUser(name: String, id: Int) : User(name, id)
 
 class Administrator(name: String, id: Int) : User(name, id) {
-    fun deleteUser() {
-        println("Удалить пользователя")
+    fun deleteUser(regularUser: RegularUser) {
+        println("$name удалил пользователя ${regularUser.name}")
     }
 
-    fun deleteMessage() {
-        println("Удалить сообщение")
+    fun deleteMessage(messageId: RegularUser) {
+        println("$name удалил сообщение №${messageId.id}")
     }
 }
