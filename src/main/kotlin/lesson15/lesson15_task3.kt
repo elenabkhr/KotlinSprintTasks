@@ -3,12 +3,12 @@ package org.example.lesson15
 fun main() {
     val user = RegularUser("name1", 1)
     user.readForum()
-    user.writeMessage(user)
+    user.writeMessage("hello")
     println()
 
     val administrator = Administrator("name2", 2)
     administrator.deleteUser(user)
-    administrator.deleteMessage(user)
+    administrator.deleteMessage("hello")
 }
 
 abstract class User(
@@ -19,8 +19,8 @@ abstract class User(
         println("$name читает форум")
     }
 
-    open fun writeMessage(messageId: RegularUser) {
-        println("$name написал сообщение №${messageId.id}")
+    open fun writeMessage(message: String) {
+        println("$name написал сообщение \"$message\"")
     }
 }
 
@@ -31,7 +31,7 @@ class Administrator(name: String, id: Int) : User(name, id) {
         println("$name удалил пользователя ${regularUser.name}")
     }
 
-    fun deleteMessage(messageId: RegularUser) {
-        println("$name удалил сообщение №${messageId.id}")
+    fun deleteMessage(message: String) {
+        println("$name удалил сообщение \"$message\"")
     }
 }
