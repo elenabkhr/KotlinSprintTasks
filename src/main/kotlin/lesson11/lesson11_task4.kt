@@ -1,4 +1,4 @@
-package org.example.lesson11_task4
+package org.example.lesson11
 
 class RecipeCategories (
     val idCategories: Int,

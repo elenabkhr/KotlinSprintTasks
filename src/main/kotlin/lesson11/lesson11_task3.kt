@@ -1,4 +1,4 @@
-package org.example.lesson11_task3
+package org.example.lesson11
 
 fun main() {
     val room1 = Room(
