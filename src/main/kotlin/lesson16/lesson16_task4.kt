@@ -1,21 +1,24 @@
 package org.example.lesson16
 
 fun main() {
-    println("Введите новый номер для заказа:")
-    changeNumber(readln().toInt())
-}
-
-fun changeNumber(newNumber: Int) {
     val order = Order()
-    println("Изменить номер заказа ${order.getNumber()} -> $newNumber")
-    order.setNumber(newNumber)
+    requestOrderChange(order, "delivered")
 }
 
-class Order(private var number: Int = 100, val status: String = "created") {
+fun requestOrderChange(order: Order, newStatus: String) {
+    println("Изменить статус заказа №${order.number}")
+    order.changeStatus(newStatus)
+    println("Статус заказа изменен на ${order.getStatus()}")
+}
 
-    fun getNumber() = number
+class Order(val number: Int = 100, private var status: String = "created") {
 
-    fun setNumber(newNumber: Int) {
-        number = newNumber
+    fun getStatus() = status
+    private fun setStatus(newStatus: String) {
+        status = newStatus
+    }
+
+    fun changeStatus(newStatus: String) {
+        setStatus(newStatus)
     }
 }
