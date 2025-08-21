@@ -1,11 +1,12 @@
 package org.example.lesson17
 
-class Quiz(private val question: String, private var answer: String) {
+class Quiz(question: String, answer: String) {
+    val question: String = question
+        get() = field
 
-    fun getQuestion() = question
-
-    fun getAnswer() = answer
-    fun setAnswer(newAnswer: String) {
-        answer = newAnswer
-    }
+    var answer: String = answer
+        get() = field
+        set(value) {
+            field = value
+        }
 }
