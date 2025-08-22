@@ -10,11 +10,11 @@ class Folder(val name: String = "name", numberFile: Int = 5, val isSecret: Boole
     val numberFile: Int = numberFile
         get() = if (isSecret) 0 else field
 
-    val infoName: String = ""
+    val infoName: String
         get() =
             if (isSecret) {
                 "Скрытая папка"
             } else {
-                "Название: $field, количество файлов: $numberFile"
+                "Название: $name, количество файлов: $numberFile"
             }
 }
