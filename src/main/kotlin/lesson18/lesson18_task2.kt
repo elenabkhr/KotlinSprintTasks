@@ -10,31 +10,28 @@ fun main() {
 }
 
 fun showAllResult(result: List<Dice>) {
-    result.forEach {
-        (it.rollDice())
-    }
+    result.forEach { it.rollDice() }
 }
 
-open class Dice() {
-    open fun rollDice() {
-    }
+abstract class Dice(val numberOfSides: Int) {
+    abstract fun rollDice()
 }
 
-class FourSided(private val numberOfSides: Int = 4) : Dice() {
+class FourSided() : Dice(numberOfSides = 4) {
     override fun rollDice() {
         val resultRollDice = (1..numberOfSides).random()
         println("Брошена кость ($numberOfSides грани), результат броска: $resultRollDice")
     }
 }
 
-class SixSided(private val numberOfSides: Int = 6) : Dice() {
+class SixSided() : Dice(numberOfSides = 6) {
     override fun rollDice() {
         val resultRollDice = (1..numberOfSides).random()
         println("Брошена кость ($numberOfSides граней), результат броска: $resultRollDice")
     }
 }
 
-class EightSided(private val numberOfSides: Int = 8) : Dice() {
+class EightSided() : Dice(numberOfSides = 8) {
     override fun rollDice() {
         val resultRollDice = (1..numberOfSides).random()
         println("Брошена кость ($numberOfSides граней), результат броска: $resultRollDice")
