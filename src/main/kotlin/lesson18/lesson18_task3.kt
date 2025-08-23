@@ -15,33 +15,35 @@ fun printList(listAnimals: List<Animal>) {
     }
 }
 
-open class Animal {
-    open fun takeFood() = ""
-    open fun sleep() {}
+abstract class Animal(val name: String) {
+    abstract fun takeFood(): String
+    open fun sleep(): String {
+        return "$name -> спит"
+    }
 }
 
 class Fox(
-    private val name: String = "",
+    name: String,
     private val food: String = "ягода",
-) : Animal() {
+) : Animal(name) {
     override fun takeFood(): String {
         return "$name -> ест \"$food\""
     }
 }
 
 class Dog(
-    private val name: String = "",
+    name: String,
     private val food: String = "кость",
-) : Animal() {
+) : Animal(name) {
     override fun takeFood(): String {
         return "$name -> ест \"$food\""
     }
 }
 
 class Cat(
-    private val name: String = "",
+    name: String,
     private val food: String = "рыба",
-) : Animal() {
+) : Animal(name) {
     override fun takeFood(): String {
         return "$name -> ест \"$food\""
     }
