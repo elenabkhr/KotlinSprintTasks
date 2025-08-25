@@ -9,5 +9,7 @@ class SpaceShip() {
         throw NotImplementedError()
     }
 
-    fun shootAsteroid() {}
+    fun shootAsteroid() {
+        //TODO: добавить логику
+    }
 }
