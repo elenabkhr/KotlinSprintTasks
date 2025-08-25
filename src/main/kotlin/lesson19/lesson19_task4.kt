@@ -17,7 +17,7 @@ enum class AmmoTypes(val hitPower: Int) {
     RED(20)
 }
 
-class Tank() {
+class Tank(var ammoTypes: AmmoTypes? = null) {
     var damage = 0
 
     fun changeWeapon(ammoTypes: AmmoTypes) {
