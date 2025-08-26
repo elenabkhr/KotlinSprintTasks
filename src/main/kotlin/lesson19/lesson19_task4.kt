@@ -18,13 +18,12 @@ enum class AmmoTypes(val hitPower: Int) {
 }
 
 class Tank(var ammoTypes: AmmoTypes? = null) {
-    var damage = 0
 
     fun changeWeapon(ammoTypes: AmmoTypes) {
-        damage = ammoTypes.hitPower
+        this.ammoTypes = ammoTypes
     }
 
     fun shoot() {
-        println("Произведен выстрел. Нанесенный урон: $damage")
+        println("Произведен выстрел. Нанесенный урон: ${ammoTypes?.hitPower ?: 0}")
     }
 }
