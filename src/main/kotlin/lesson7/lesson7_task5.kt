@@ -9,8 +9,16 @@ fun main() {
     println("Введите длину пароля: ")
     val lengthPassword = readln().toInt()
 
-    for (i in 1..lengthPassword) {
-        randomPassword += (randomChar + randomStringLowercase + randomStringUppercase).random()
+    if (lengthPassword < 6) {
+        println("Минимальная длина пароля: 6 символов")
+    } else {
+        randomPassword += randomChar.random()
+        randomPassword += randomStringLowercase.random()
+        randomPassword += randomStringUppercase.random()
+
+        for (i in 1..lengthPassword - 3) {
+            randomPassword += (randomChar + randomStringLowercase + randomStringUppercase).random()
+        }
+        println(randomPassword.toList().shuffled().joinToString(""))
     }
-    println(randomPassword)
 }
