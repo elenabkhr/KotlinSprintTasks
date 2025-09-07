@@ -1,4 +1,4 @@
-package org.example.lesson12.lesson12_task1
+package org.example.lesson12
 
 fun main() {
     val weather1 = Weather()

@@ -1,4 +1,4 @@
-package org.example.lesson7
+package org.example.lesson1_10.lesson7
 
 fun main() {
     var randomPassword = ""
